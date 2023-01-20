@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.js"></script>
+        <script>
+            let noncelogo;
+            function preload() {
+                console.log("Starting preload")
+                noncelogo = loadModel('assets/cube.obj',true);
+                console.log(noncelogo)
+            }
+            function setup() {
+                console.log("setting canvas...")
+                createCanvas(600,400,WEBGL);
+                console.log("canvas set")
+            }
+            function draw(){
+                background(255);
+                rotateY(mouseX/100);
+                rotateX(mouseY/100);
+                normalMaterial();
+                model(noncelogo);
+            }
+        </script>
+        <style>
+        </style>
+    </head>
+    <body>
+
+    </body>
+</html>
