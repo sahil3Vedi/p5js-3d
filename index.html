@@ -7,33 +7,24 @@
             let noncelogo;
             let sineOffset;
             function preload() {
-                console.log("Starting preload");
                 noncelogo = loadModel('assets/cube_parts.obj',true);
-                console.log(noncelogo);
             }
             function setup() {
-                console.log("setting canvas...");
                 sineOffset = 0;
                 createCanvas(window.innerWidth,window.innerHeight,WEBGL);
-                console.log("canvas set");
             }
             function draw(){
                 background(255);
                 translate(0,10*sin(sineOffset),0);
-                directionalLight(101,146,254,0,0,-50);
+                directionalLight(101,146,254,0,0,-20);
                 ambientMaterial(96,89,247);
                 strokeWeight(0);
-                rotateX(-mouseY/500);
-                rotateZ(mouseX/400);
-                push()
-                
+                rotateX((0.085*((-mouseY+(window.innerHeight/2)))-789)/500);
+                rotateZ((0.085*((mouseX-(window.innerWidth/2)))+628)/400);
                 model(noncelogo);
-                pop()
-                sineOffset+=0.04;
+                sineOffset+=0.03;
             }
         </script>
-        <style>
-        </style>
     </head>
     <body>
 
