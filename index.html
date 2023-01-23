@@ -12,15 +12,17 @@
             function setup() {
                 sineOffset = 0;
                 createCanvas(window.innerWidth,window.innerHeight,WEBGL);
+                ortho(-window.innerWidth/2, window.innerWidth/2, window.innerHeight/2, -window.innerHeight/2, -2000, 2000);
             }
             function draw(){
+                // orbitControl();
                 background(255);
                 translate(0,10*sin(sineOffset),0);
                 directionalLight(101,146,254,0,0,-20);
                 ambientMaterial(96,89,247);
                 strokeWeight(0);
-                rotateX((0.085*((-mouseY+(window.innerHeight/2)))-789)/500);
-                rotateZ((0.085*((mouseX-(window.innerWidth/2)))+628)/400);
+                rotateX((-0.1*((-mouseY+(window.innerHeight/2)))-789)/500);
+                rotateZ((0.1*((mouseX-(window.innerWidth/2)))+628)/400);
                 model(noncelogo);
                 sineOffset+=0.03;
             }
